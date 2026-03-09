@@ -8,6 +8,7 @@
     "scheme": "sdvm1rn2026",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "backgroundColor": "#ecf0f1",
     "ios": {
       "supportsTablet": true
     },
