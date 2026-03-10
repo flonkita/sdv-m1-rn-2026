@@ -1,24 +1,25 @@
-import TodoCard from "@/components/TodoCard";
-import { StyleSheet, View } from "react-native";
+import TodoList from "@/components/todolist/TodoList";
+import { Stack, useRouter } from "expo-router";
+import { Button } from "react-native";
 
 export default function Index() {
+  const router = useRouter();
   return (
-    <View style={styles.container}>
-      <TodoCard title="Apprendre React" completed />
-      <TodoCard title="Apprendre React Native" />
-      <TodoCard title="Apprendre l'AIDD" />
-      <TodoCard title="Apprendre l'Anglais" completed />
-      <TodoCard title="Apprendre le Japonais" />
-    </View>
+    <>
+      <Stack.Screen
+        options={{
+          title: "TODO-list",
+          headerRight: () => (
+            <Button
+              onPress={() => {
+                router.navigate("/edit");
+              }}
+              title="Créer"
+            />
+          ),
+        }}
+      />
+      <TodoList />
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    backgroundColor: "#ecf0f1",
-    padding: 8,
-    gap: 32,
-  },
-});
